@@ -1,0 +1,12 @@
+# Label Vocabulary --- VLSP NER
+# Tong so nhan: 9
+
+0	O
+1	B-LOC
+2	B-ORG
+3	I-LOC
+4	B-PER
+5	I-PER
+6	I-ORG
+7	B-MISC
+8	I-MISC

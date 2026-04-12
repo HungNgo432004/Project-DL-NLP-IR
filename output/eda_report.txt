@@ -1,0 +1,384 @@
+﻿=================================================================
+  VLSP NER ΓÇö Ph├ón T├¡ch Dß╗» Liß╗çu (Phß║ºn 1ΓÇô6)
+=================================================================
+
+[PHß║ªN 5] ─Éß╗ìc & Tiß╗ün Xß╗¡ L├╜ Dß╗» Liß╗çu VLSP
+---------------------------------------------
+
+  ─Éß╗ìc tß║¡p TRAIN (267 file, 5-cß╗Öt) ...
+  ─Éß╗ìc 50/267 file ΓÇö 2,521 c├óu
+  ─Éß╗ìc 100/267 file ΓÇö 5,918 c├óu
+  ─Éß╗ìc 150/267 file ΓÇö 8,888 c├óu
+  ─Éß╗ìc 200/267 file ΓÇö 12,399 c├óu
+  ─Éß╗ìc 250/267 file ΓÇö 15,780 c├óu
+  Γ£ô Tß╗òng cß╗Öng 267 file ΓåÆ 16,857 c├óu
+
+  Chuß║⌐n h├│a BIO sequence ...
+
+  ─Éß╗ìc tß║¡p TEST (45 file, 3-cß╗Öt) ...
+  Γ£ô Tß╗òng cß╗Öng 45 file ΓåÆ 2,831 c├óu
+
+  Split 90/10 (theo file):
+    Train : 15,282 c├óu
+    Dev   : 1,575 c├óu
+    Test  : 2,831 c├óu
+
+  X├óy dß╗▒ng vocabulary ...
+    Labels (9): {'O': 0, 'B-LOC': 1, 'B-ORG': 2, 'I-LOC': 3, 'B-PER': 4, 'I-PER': 5, 'I-ORG': 6, 'B-MISC': 7, 'I-MISC': 8}
+    Word vocab : 18,182 tß╗½
+    Char vocab : 198 k├╜ tß╗▒
+
+  Γ£ô Label vocab l╞░u tß║íi: D:\vu\Project DL - NLP - IR\output\label_vocab.txt
+
+  [V├¡ dß╗Ñ c├óu ─æ├ú parse tß╗½ file 7818.txt]
+  File: 7818.txt
+  Token                  POS      Chunk      NER        Nested
+  ------------------------------------------------------------
+  Tr╞░a                   N        B-NP       O          O
+  28-10                  M        B-NP       O          O
+  ,                      CH       O          O          O
+  ch├║ng_t├┤i              P        B-NP       O          O
+  gh├⌐                    V        B-VP       O          O
+  v├áo                    V        B-VP       O          O
+  nh├á_h├áng               N        B-NP       B-LOC      O  ΓåÉ NER!
+  Kiß╗üu                   NNP      I-NP       I-LOC      O  ΓåÉ NER!
+  Oanh                   NNP      I-NP       I-LOC      O  ΓåÉ NER!
+  nß║▒m                    V        B-VP       O          O
+  ngay                   T        O          O          O
+  trung_t├óm              N        B-NP       O          O
+  thß╗ï_x├ú                 N        B-NP       B-LOC      O  ΓåÉ NER!
+  ─Éß╗ông_Xo├ái              NNP      I-NP       I-LOC      O  ΓåÉ NER!
+  (                      CH       O          O          O
+  B├¼nh_Ph╞░ß╗¢c             NNP      B-NP       B-LOC      O  ΓåÉ NER!
+  )                      CH       O          O          O
+  .                      CH       O          O          O
+
+
+[PHß║ªN 6] Ph├ón T├¡ch Kh├ím Ph├í Dß╗» Liß╗çu EDA
+---------------------------------------------
+
+=================================================================
+  EDA ΓÇö Train
+=================================================================
+
+  [Tß╗òng quan]
+    Sß╗æ c├óu          : 15,282
+    Tß╗òng token      : 333,062
+    ─Éß╗Ö d├ái TB       : 21.8 token/c├óu
+    ─Éß╗Ö d├ái min/max  : 1 / 106
+    Token c├│ '_'    : 59,995 (18.0%)
+
+  [Ph├ón nh├│m ─æß╗Ö d├ái c├óu]
+    Γëñ32        : 12,658  ( 82.8%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    33-64      : 2,491  ( 16.3%)  ΓûêΓûêΓûêΓûêΓûêΓûê
+    65-128     :   133  (  0.9%)  
+    129-256    :     0  (  0.0%)  
+    >256       :     0  (  0.0%)  
+
+  [Ph├ón phß╗æi nh├ún NER]
+    B-LOC        :   5,658  
+    B-MISC       :     268  
+    B-ORG        :   1,104  
+    B-PER        :   6,648  
+    I-LOC        :   2,432  
+    I-MISC       :     263  
+    I-ORG        :   1,859  
+    I-PER        :   3,179  
+    O            : 311,651  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+  [Entity count (B- tags)]
+    PER   : 6,648
+    LOC   : 5,658
+    ORG   : 1,104
+    MISC  : 268
+
+  [Nested entity (cß╗Öt 5)]
+    LOC   : 633
+    PER   : 17
+          : 13
+    ORG   : 3
+
+  [Top 10 entity text theo loß║íi]
+    [PER]
+      H├╣ng                                     (195x)
+      Hß║úi                                      (185x)
+      Ho├áng                                    (119x)
+      Hiß║┐u                                     (101x)
+      T├╣ng                                     (101x)
+      Ch╞░╞íng                                   (95x)
+      Tuß║Ñn                                     (94x)
+      Hß╗ông                                     (81x)
+      Thß║íc                                     (81x)
+      Fred                                     (76x)
+    [LOC]
+      VN                                       (492x)
+      Mß╗╣                                       (232x)
+      H├á_Nß╗Öi                                   (164x)
+      TP. HCM                                  (83x)
+      L├áo                                      (77x)
+      ─ÉL                                       (71x)
+      Viß╗çt                                     (70x)
+      S├ái_G├▓n                                  (69x)
+      Th├íi_Lan                                 (66x)
+      miß╗ün Nam                                 (63x)
+    [ORG]
+      Tuß╗òi_Trß║╗                                 (32x)
+      ─Éß║úng                                     (21x)
+      Nike                                     (14x)
+      b├ío Tuß╗òi_Trß║╗                             (13x)
+      L├óm_tr╞░ß╗¥ng U_Minh 2                      (10x)
+      Bß╗Ö NN & PTNT                             (10x)
+      C├┤ng_ty RIT                              (8x)
+      Trung_t├óm Trß╗ìng_─Éiß╗âm                     (8x)
+      Adidas                                   (7x)
+      UBND TP. HCM                             (7x)
+    [MISC]
+      ng╞░ß╗¥i Viß╗çt                               (54x)
+      ng╞░ß╗¥i VN                                 (43x)
+      tiß║┐ng Anh                                (39x)
+      tiß║┐ng Viß╗çt                               (32x)
+      ng╞░ß╗¥i Mß╗╣                                 (17x)
+      ng╞░ß╗¥i ─ÉL                                 (12x)
+      ng╞░ß╗¥i Nhß║¡t                               (7x)
+      ng╞░ß╗¥i Th├íi                               (6x)
+      ng╞░ß╗¥i L├áo                                (5x)
+      ng╞░ß╗¥i Ph├íp                               (4x)
+
+  [Top 15 POS tag]
+    N        :  77,962 ( 23.4%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    V        :  68,086 ( 20.4%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    CH       :  46,157 ( 13.9%)  ΓûêΓûêΓûêΓûêΓûêΓûê
+    R        :  21,786 (  6.5%)  ΓûêΓûêΓûê
+    E        :  20,185 (  6.1%)  ΓûêΓûêΓûê
+    A        :  19,822 (  6.0%)  ΓûêΓûê
+    NNP      :  17,179 (  5.2%)  ΓûêΓûê
+    P        :  14,221 (  4.3%)  ΓûêΓûê
+    M        :  11,071 (  3.3%)  Γûê
+    C        :   8,591 (  2.6%)  Γûê
+    Ns       :   7,483 (  2.2%)  Γûê
+    L        :   6,309 (  1.9%)  
+    Cc       :   3,818 (  1.1%)  
+    Nc       :   2,947 (  0.9%)  
+    T        :   1,931 (  0.6%)  
+
+
+=================================================================
+  EDA ΓÇö Dev
+=================================================================
+
+  [Tß╗òng quan]
+    Sß╗æ c├óu          : 1,575
+    Tß╗òng token      : 36,312
+    ─Éß╗Ö d├ái TB       : 23.1 token/c├óu
+    ─Éß╗Ö d├ái min/max  : 1 / 118
+    Token c├│ '_'    : 6,557 (18.1%)
+
+  [Ph├ón nh├│m ─æß╗Ö d├ái c├óu]
+    Γëñ32        : 1,246  ( 79.1%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    33-64      :   312  ( 19.8%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    65-128     :    17  (  1.1%)  
+    129-256    :     0  (  0.0%)  
+    >256       :     0  (  0.0%)  
+
+  [Ph├ón phß╗æi nh├ún NER]
+    B-LOC        :     589  
+    B-MISC       :      14  
+    B-ORG        :     109  
+    B-PER        :     832  
+    I-LOC        :     348  
+    I-MISC       :      16  
+    I-ORG        :     197  
+    I-PER        :     343  
+    O            :  33,864  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+  [Entity count (B- tags)]
+    PER   : 832
+    LOC   : 589
+    ORG   : 109
+    MISC  : 14
+
+  [Nested entity (cß╗Öt 5)]
+    LOC   : 80
+
+  [Top 10 entity text theo loß║íi]
+    [PER]
+      Lan                                      (66x)
+      H╞░╞íng                                    (46x)
+      Ch╞░╞íng                                   (40x)
+      Nam                                      (39x)
+      H├╣ng                                     (34x)
+      Thß║»ng                                    (31x)
+      Mai                                      (30x)
+      Jane                                     (19x)
+      Hß║úi                                      (18x)
+      Kim                                      (17x)
+    [LOC]
+      VN                                       (34x)
+      H├á_Nß╗Öi                                   (20x)
+      miß╗ün Nam                                 (17x)
+      L├áo                                      (14x)
+      TP. HCM                                  (13x)
+      Nam                                      (12x)
+      Loong_Chß║╣ng                              (12x)
+      Mß╗╣                                       (11x)
+      S├ái_G├▓n                                  (10x)
+      NTLS Tr╞░ß╗¥ng_S╞ín                          (8x)
+    [ORG]
+      Bß╗Ö Ngoß║íi_giao                            (3x)
+      Tuß╗òi_Trß║╗                                 (3x)
+      M.U                                      (3x)
+      Tß╗ò_chß╗⌐c Quaker                           (3x)
+      C├┤ng_ty TNHH Tr╞░ß╗¥ng_S╞ín                  (3x)
+      C├┤ng_ty Tr╞░ß╗¥ng_S╞ín                       (3x)
+      BQL chß╗ú Mai Xu├ón Th╞░ß╗ƒng                  (2x)
+      Bß╗Ö Ch├¡nh_trß╗ï                             (2x)
+      Henessy                                  (2x)
+      Heineken                                 (2x)
+    [MISC]
+      ng╞░ß╗¥i Viß╗çt                               (4x)
+      tiß║┐ng Viß╗çt                               (3x)
+      ng╞░ß╗¥i VN                                 (2x)
+      tiß║┐ng ( chß╗» ) Anh                        (1x)
+      Ng╞░ß╗¥i VN                                 (1x)
+      ng╞░ß╗¥i Mß╗╣                                 (1x)
+      Mß╗╣                                       (1x)
+      tiß║┐ng Anh                                (1x)
+
+  [Top 15 POS tag]
+    N        :   8,254 ( 22.7%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    V        :   7,340 ( 20.2%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    CH       :   5,086 ( 14.0%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    R        :   2,444 (  6.7%)  ΓûêΓûêΓûê
+    E        :   2,358 (  6.5%)  ΓûêΓûêΓûê
+    A        :   2,244 (  6.2%)  ΓûêΓûêΓûê
+    NNP      :   1,957 (  5.4%)  ΓûêΓûê
+    P        :   1,474 (  4.1%)  ΓûêΓûê
+    M        :   1,219 (  3.4%)  Γûê
+    Ns       :     919 (  2.5%)  Γûê
+    C        :     866 (  2.4%)  Γûê
+    L        :     669 (  1.8%)  
+    Cc       :     441 (  1.2%)  
+    Nc       :     289 (  0.8%)  
+    T        :     206 (  0.6%)  
+
+
+=================================================================
+  EDA ΓÇö Test
+=================================================================
+
+  [Tß╗òng quan]
+    Sß╗æ c├óu          : 2,831
+    Tß╗òng token      : 66,097
+    ─Éß╗Ö d├ái TB       : 23.3 token/c├óu
+    ─Éß╗Ö d├ái min/max  : 1 / 132
+    Token c├│ '_'    : 11,258 (17.0%)
+
+  [Ph├ón nh├│m ─æß╗Ö d├ái c├óu]
+    Γëñ32        : 2,242  ( 79.2%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    33-64      :   565  ( 20.0%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    65-128     :    23  (  0.8%)  
+    129-256    :     1  (  0.0%)  
+    >256       :     0  (  0.0%)  
+
+  [Ph├ón phß╗æi nh├ún NER]
+    O            :  66,097  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+
+  [Entity count (B- tags)]
+
+  [Nested entity] ΓÇö Kh├┤ng c├│ (dß╗» liß╗çu test kh├┤ng c├│ nh├ún)
+
+  [Top 10 entity text theo loß║íi]
+
+  [Top 15 POS tag]
+    N        :  15,381 ( 23.3%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    V        :  12,643 ( 19.1%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    CH       :   9,765 ( 14.8%)  ΓûêΓûêΓûêΓûêΓûêΓûêΓûê
+    R        :   4,260 (  6.4%)  ΓûêΓûêΓûê
+    NNP      :   4,111 (  6.2%)  ΓûêΓûêΓûê
+    A        :   3,949 (  6.0%)  ΓûêΓûê
+    E        :   3,816 (  5.8%)  ΓûêΓûê
+    M        :   2,623 (  4.0%)  Γûê
+    P        :   2,593 (  3.9%)  Γûê
+    C        :   1,641 (  2.5%)  Γûê
+    Ns       :   1,587 (  2.4%)  Γûê
+    L        :   1,157 (  1.8%)  
+    Cc       :     656 (  1.0%)  
+    Nc       :     499 (  0.8%)  
+    Nu       :     341 (  0.5%)  
+
+
+=================================================================
+  Ph├ón T├¡ch ─Éß║╖c Tr╞░ng Format VLSP
+=================================================================
+
+  1. Token gh├⌐p bß║▒ng '_'  : 59,995 / 333,062 (18.0%)
+     V├¡ dß╗Ñ (20 ─æß║ºu):
+       ß║ñn_─Éß╗Ö_D╞░╞íng
+       Th├íi_B├¼nh_D╞░╞íng
+       h├áng_ho├í
+       l╞░u_th├┤ng
+       ─æ╞░ß╗¥ng_biß╗ân
+       thß║┐_giß╗¢i
+       hß║úi_tr├¼nh
+       t├áu_b├¿
+       qua_lß║íi
+       ph├│ng_vi├¬n
+       Tuß╗òi_Trß║╗
+       thß╗▒c_hiß╗çn
+       cß║úm_nhß║¡n
+       thuß╗╖_thß╗º
+       viß╗àn_d╞░╞íng
+       hß║úi_tß║╖c
+       eo_biß╗ân
+       Ch├║ng_t├┤i
+       l├¬n_─æ╞░ß╗¥ng
+       ─æß║íi_diß╗çn
+
+  2. Nested entity (cß╗Öt 5): 666 token
+     V├¡ dß╗Ñ (10 ─æß║ºu):
+       Malaysia              col4=I-ORG     col5=B-LOC
+       Indonesia             col4=I-ORG     col5=B-LOC
+       tß╗ënh                  col4=I-ORG     col5=B-LOC
+       C├á_Mau                col4=I-ORG     col5=I-LOC
+       U_Minh                col4=I-ORG     col5=B-LOC
+       2                     col4=I-ORG     col5=I-LOC
+       tß╗ënh                  col4=I-ORG     col5=B-LOC
+       C├á_Mau                col4=I-ORG     col5=I-LOC
+       huyß╗çn                 col4=I-ORG     col5=B-LOC
+       U_Minh                col4=I-ORG     col5=I-LOC
+
+  3. Token dß║Ñu nh├íy trong entity span: 69
+
+  4. Token viß║┐t tß║»t (POS=Ny): 1,362
+     V├¡ dß╗Ñ (10 ─æß║ºu):
+       IMB         B-ORG
+       MH          O
+       TP.         B-LOC
+       F.          O
+       IMB         B-ORG
+       IMB         B-ORG
+       IMB         B-ORG
+       TTCN        B-ORG
+       UBND        O
+       UBND        O
+
+  ─Éang vß║╜ biß╗âu ─æß╗ô ΓåÆ 'D:\vu\Project DL - NLP - IR\output' ...
+  Γ£ô D:\vu\Project DL - NLP - IR\output\eda_train.png
+  Γ£ô D:\vu\Project DL - NLP - IR\output\eda_dev.png
+  Γ£ô D:\vu\Project DL - NLP - IR\output\eda_test.png
+  Γ£ô D:\vu\Project DL - NLP - IR\output\eda_comparison.png
+
+=================================================================
+  T├ôM Tß║«T
+=================================================================
+  Train : 15,282 c├óu | 333,062 token | avg_len=21.8
+  Dev   : 1,575 c├óu | 36,312 token | avg_len=23.1
+  Test  : 2,831 c├óu | 66,097 token | avg_len=23.3
+
+  Labels: {'O': 0, 'B-LOC': 1, 'B-ORG': 2, 'I-LOC': 3, 'B-PER': 4, 'I-PER': 5, 'I-ORG': 6, 'B-MISC': 7, 'I-MISC': 8}
+  Entity counts (train):  {'LOC': 5658, 'ORG': 1104, 'PER': 6648, 'MISC': 268}
+
+  Token c├│ '_' (train): 59,995 (18.0%) ΓåÆ cß║ºn replace '_'ΓåÆ' ' tr╞░ß╗¢c PhoBERT!
+
+  Γ£ô Ho├án tß║Ñt! Biß╗âu ─æß╗ô l╞░u tß║íi: D:\vu\Project DL - NLP - IR\output
+=================================================================

@@ -1,0 +1,99 @@
+=================================================================
+  EDA --- Dev
+=================================================================
+
+  [Tong quan]
+    So cau          : 1,617
+    Tong token      : 37,605
+    Do dai TB       : 23.3 token/cau
+    Do dai min/max  : 1 / 118
+    Token co '_'    : 6,790 (18.1%)
+
+  [Phan nhom do dai cau]
+    <=32       : 1,269  ( 78.5%)  ###############################
+    33-64      :   330  ( 20.4%)  ########
+    65-128     :    18  (  1.1%)  
+    129-256    :     0  (  0.0%)  
+    >256       :     0  (  0.0%)  
+
+  [Phan phoi nhan NER]
+    B-LOC        :     694  
+    B-MISC       :      15  
+    B-ORG        :     112  
+    B-PER        :     836  
+    I-LOC        :     368  
+    I-MISC       :      17  
+    I-ORG        :     198  
+    I-PER        :     347  
+    O            :  35,018  ##############################
+
+  [Entity count (B- tags)]
+    PER   : 836
+    LOC   : 694
+    ORG   : 112
+    MISC  : 15
+
+  [Nested entity (cot 5)]
+    LOC   : 80
+
+  [Top 10 entity text theo loai]
+    [PER]
+      Lan                                      (66x)
+      Hương                                    (46x)
+      Chương                                   (40x)
+      Nam                                      (39x)
+      Hùng                                     (34x)
+      Thắng                                    (31x)
+      Mai                                      (30x)
+      Jane                                     (19x)
+      Hải                                      (18x)
+      Kim                                      (17x)
+    [LOC]
+      VN                                       (50x)
+      Hà_Nội                                   (21x)
+      Lào                                      (21x)
+      Thái                                     (19x)
+      miền Nam                                 (17x)
+      TP. HCM                                  (13x)
+      Việt                                     (12x)
+      Nam                                      (12x)
+      Loong_Chẹng                              (12x)
+      Mỹ                                       (11x)
+    [ORG]
+      Bộ Ngoại_giao                            (3x)
+      Tuổi_Trẻ                                 (3x)
+      M.U                                      (3x)
+      Tổ_chức Quaker                           (3x)
+      Công_ty TNHH Trường_Sơn                  (3x)
+      Công_ty Trường_Sơn                       (3x)
+      BQL chợ Mai Xuân Thưởng                  (2x)
+      Bộ Chính_trị                             (2x)
+      ASEAN                                    (2x)
+      Henessy                                  (2x)
+    [MISC]
+      người Việt                               (4x)
+      tiếng Việt                               (4x)
+      người VN                                 (2x)
+      tiếng ( chữ ) Anh                        (1x)
+      Người VN                                 (1x)
+      người Mỹ                                 (1x)
+      Mỹ                                       (1x)
+      tiếng Anh                                (1x)
+
+  [Top 15 POS tag]
+    N        :   8,577 ( 22.8%)  ###########
+    V        :   7,570 ( 20.1%)  ##########
+    CH       :   5,235 ( 13.9%)  ######
+    R        :   2,527 (  6.7%)  ###
+    E        :   2,450 (  6.5%)  ###
+    A        :   2,310 (  6.1%)  ###
+    NNP      :   2,070 (  5.5%)  ##
+    P        :   1,532 (  4.1%)  ##
+    M        :   1,264 (  3.4%)  #
+    Ns       :     931 (  2.5%)  #
+    C        :     921 (  2.4%)  #
+    L        :     692 (  1.8%)  
+    Cc       :     457 (  1.2%)  
+    Nc       :     296 (  0.8%)  
+    T        :     214 (  0.6%)  
+

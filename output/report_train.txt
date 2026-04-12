@@ -1,0 +1,104 @@
+=================================================================
+  EDA --- Train
+=================================================================
+
+  [Tong quan]
+    So cau          : 15,241
+    Tong token      : 331,785
+    Do dai TB       : 21.8 token/cau
+    Do dai min/max  : 1 / 106
+    Token co '_'    : 59,766 (18.0%)
+
+  [Phan nhom do dai cau]
+    <=32       : 12,636  ( 82.9%)  #################################
+    33-64      : 2,473  ( 16.2%)  ######
+    65-128     :   132  (  0.9%)  
+    129-256    :     0  (  0.0%)  
+    >256       :     0  (  0.0%)  
+
+  [Phan phoi nhan NER]
+    B-LOC        :   5,553  
+    B-MISC       :     267  
+    B-ORG        :   1,101  
+    B-PER        :   6,644  
+    I-LOC        :   2,412  
+    I-MISC       :     262  
+    I-ORG        :   1,858  
+    I-PER        :   3,175  
+    O            : 310,513  ##############################
+
+  [Entity count (B- tags)]
+    PER   : 6,644
+    LOC   : 5,553
+    ORG   : 1,101
+    MISC  : 267
+
+  [Nested entity (cot 5)]
+    LOC   : 633
+    PER   : 17
+          : 13
+    ORG   : 3
+
+  [Top 10 entity text theo loai]
+    [PER]
+      Hùng                                     (195x)
+      Hải                                      (185x)
+      Hoàng                                    (119x)
+      Hiếu                                     (101x)
+      Tùng                                     (101x)
+      Chương                                   (95x)
+      Tuấn                                     (94x)
+      Hồng                                     (81x)
+      Thạc                                     (81x)
+      Fred                                     (76x)
+    [LOC]
+      VN                                       (476x)
+      Mỹ                                       (232x)
+      Hà_Nội                                   (163x)
+      TP. HCM                                  (83x)
+      ĐL                                       (71x)
+      Lào                                      (70x)
+      Sài_Gòn                                  (69x)
+      Việt                                     (65x)
+      Thái_Lan                                 (65x)
+      miền Nam                                 (63x)
+    [ORG]
+      Tuổi_Trẻ                                 (32x)
+      Đảng                                     (21x)
+      Nike                                     (14x)
+      báo Tuổi_Trẻ                             (13x)
+      Lâm_trường U_Minh 2                      (10x)
+      Bộ NN & PTNT                             (10x)
+      Công_ty RIT                              (8x)
+      Trung_tâm Trọng_Điểm                     (8x)
+      Adidas                                   (7x)
+      UBND TP. HCM                             (7x)
+    [MISC]
+      người Việt                               (54x)
+      người VN                                 (43x)
+      tiếng Anh                                (39x)
+      tiếng Việt                               (31x)
+      người Mỹ                                 (17x)
+      người ĐL                                 (12x)
+      người Nhật                               (7x)
+      người Thái                               (6x)
+      người Lào                                (5x)
+      người Pháp                               (4x)
+
+  [Top 15 POS tag]
+    N        :  77,646 ( 23.4%)  ###########
+    V        :  67,859 ( 20.5%)  ##########
+    CH       :  46,009 ( 13.9%)  ######
+    R        :  21,703 (  6.5%)  ###
+    E        :  20,093 (  6.1%)  ###
+    A        :  19,758 (  6.0%)  ##
+    NNP      :  17,066 (  5.1%)  ##
+    P        :  14,163 (  4.3%)  ##
+    M        :  11,026 (  3.3%)  #
+    C        :   8,536 (  2.6%)  #
+    Ns       :   7,471 (  2.3%)  #
+    L        :   6,288 (  1.9%)  
+    Cc       :   3,802 (  1.1%)  
+    Nc       :   2,940 (  0.9%)  
+    T        :   1,923 (  0.6%)  
+
