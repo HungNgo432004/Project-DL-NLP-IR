@@ -1,0 +1,6 @@
+streamlit>=1.32
+torch>=2.1
+transformers>=4.38
+pytorch-crf>=0.7.2
+underthesea>=6.8
+sentencepiece>=0.1.99
