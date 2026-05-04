@@ -190,7 +190,3 @@ Sau khi app chạy, truy cập `http://localhost:8501` (hoặc địa chỉ Stre
 Ghi chú:
 - `app_streamlit.py` có cơ chế tìm `label_mapping.json` ở một số vị trí, nhưng đặt `label_mapping.json` cùng thư mục với `best_model.pt` là cách an toàn nhất.
 - Nếu model tải về kèm thư mục con (ví dụ `checkpoints/phobert_crf/best_model.pt`), bạn có thể để nguyên cấu trúc và chỉ sửa `MODEL_PATH` trong `app_streamlit.py` cho phù hợp.
-
----
-
-Ghi chú ngắn: mình đã thêm hướng dẫn này để bạn có thể tải trực tiếp output từ kernel Kaggle và chạy app trên máy local; cần mình tự động sửa `MODEL_PATH` trong `app_streamlit.py` để trỏ đến `checkpoints/phobert_crf/best_model.pt` không? Nếu có, mình sẽ cập nhật file luôn.
