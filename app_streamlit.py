@@ -44,10 +44,10 @@ DEFAULT_ID2LABEL = {
 }
 
 ENTITY_NAMES = {
-    "PER": "Person",
-    "LOC": "Location",
-    "ORG": "Organization",
-    "MISC": "Misc",
+    "PER": "Người (PER)",
+    "LOC": "Địa điểm (LOC)",
+    "ORG": "Tổ chức (ORG)",
+    "MISC": "Khác (MISC)",
 }
 
 ENTITY_COLORS = {
@@ -295,7 +295,7 @@ def predict_ner(text: str, model, tokenizer, device, id2label: Dict[int, str]):
 
 def _render_entity_badges(entities: List[Dict[str, str]]):
     if not entities:
-        st.info("Khong tim thay entity nao trong doan van ban.")
+        st.info("Không tìm thấy thực thể nào trong đoạn văn bản.", icon="ℹ️")
         return
 
     chips = []
@@ -303,9 +303,10 @@ def _render_entity_badges(entities: List[Dict[str, str]]):
         color = ENTITY_COLORS.get(ent["entity"], ENTITY_COLORS["OTHER"])
         chips.append(
             f"""
-            <span style=\"display:inline-block;margin:4px 6px 4px 0;padding:7px 12px;\
-            border-radius:999px;background:{color};color:white;font-size:0.88rem;\
-            font-weight:600;\">{ent['entity_name']}: {ent['text']}</span>
+            <span style=\"display:inline-block;margin:4px 6px 4px 0;padding:6px 14px;\
+            border-radius:20px;background:{color};color:white;font-size:0.9rem;\
+            font-weight:500;box-shadow: 0 2px 4px rgba(0,0,0,0.1);\">\
+            <b>{ent['entity_name']}</b>: {ent['text']}</span>
             """
         )
 
@@ -314,31 +315,93 @@ def _render_entity_badges(entities: List[Dict[str, str]]):
 
 def main():
     st.set_page_config(
-        page_title="Vietnamese NER Demo",
-        page_icon="🧠",
+        page_title="Nhận Dạng Thực Thể Tiếng Việt",
+        page_icon="✨",
         layout="centered",
     )
 
     st.markdown(
         """
         <style>
-        .block-container {padding-top: 1.2rem; padding-bottom: 2rem; max-width: 900px;}
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        html, body, [class*="css"] {
+            font-family: 'Inter', sans-serif;
+        }
+        .block-container {padding-top: 1.5rem; padding-bottom: 3rem; max-width: 950px;}
         .title-box {
-            background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
-            padding: 1.1rem 1.3rem;
-            border-radius: 14px;
+            background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+            padding: 1.8rem 2rem;
+            border-radius: 16px;
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .title-box h2 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: white;
+            font-size: 2rem;
         }
         .subtle {
-            color: #334155;
+            color: #475569;
             font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0.8rem 1.2rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
         }
         .metric-card {
-            border: 1px solid #dbeafe;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 0.8rem;
-            background: #f8fbff;
+            padding: 1.5rem;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease-in-out;
+            text-align: center;
+        }
+        .metric-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 0.5rem;
+        }
+        .metric-label {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        /* Style text area */
+        .stTextArea textarea {
+            border-radius: 12px !important;
+            border: 1px solid #cbd5e1 !important;
+            padding: 1rem !important;
+            font-size: 1.05rem !important;
+            line-height: 1.6 !important;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.03) !important;
+        }
+        .stTextArea textarea:focus {
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+        }
+        /* Style button */
+        .stButton>button {
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+            font-size: 1.05rem !important;
+            padding: 0.5rem 1rem !important;
+            height: 3.2rem !important;
+            transition: all 0.2s !important;
         }
         </style>
         """,
@@ -348,104 +411,132 @@ def main():
     st.markdown(
         """
         <div class="title-box">
-            <h2 style="margin:0;">Vietnamese NER Demo (PhoBERT + CRF)</h2>
-            <div style="margin-top:6px;opacity:0.95;">Nhan dang thuc the PER / LOC / ORG / MISC tu van ban tieng Viet.</div>
+            <h2>✨ Hệ Thống Nhận Dạng Thực Thể</h2>
+            <div style="margin-top:10px;opacity:0.9;font-size:1.05rem;line-height:1.5;">Phát hiện và phân loại các thực thể PER (Người), LOC (Địa điểm), ORG (Tổ chức), MISC (Khác) từ văn bản tiếng Việt sử dụng mô hình PhoBERT + CRF.</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    with st.spinner("Dang khoi tao model..."):
+    with st.spinner("Đang tải mô hình vào bộ nhớ..."):
         model, tokenizer, device, id2label = load_inference_components()
 
     max_chars_display = str(MAX_CHARS) if MAX_CHARS is not None else "Không giới hạn"
     st.markdown(
-        f"<div class='subtle'>Model: <b>{MODEL_PATH.name}</b> | Device: <b>{str(device).upper()}</b> | Max chars: <b>{max_chars_display}</b></div>",
+        f"""
+        <div class='subtle'>
+            <span>🚀 <b>Mô hình:</b> {MODEL_PATH.name}</span>
+            <span>⚡ <b>Thiết bị:</b> {str(device).upper()}</span>
+            <span>📝 <b>Giới hạn:</b> {max_chars_display}</span>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
     default_text = (
-        "Ngay 20/10/2023, ong Nguyen Van A - CEO VinGroup - da hop voi UBND thanh pho Ha Noi "
-        "tai khach san Sofitel Legend Metropole de thao luan ve du an xe dien thong minh."
+        "Ngày 20/10/2023, ông Nguyễn Văn A - CEO Vingroup - đã họp với UBND thành phố Hà Nội "
+        "tại khách sạn Sofitel Legend Metropole để thảo luận về dự án xe điện thông minh."
     )
 
     if MAX_CHARS is None:
         text = st.text_area(
-            "Nhap doan van can nhan dang thuc the",
+            "Nhập đoạn văn bản cần nhận dạng thực thể",
             value=default_text,
-            height=170,
+            height=150,
             help="(Không giới hạn ký tự)",
             placeholder="Ví dụ: Tôi gặp ông Trần Văn B tại Đà Nẵng...",
         )
     else:
         text = st.text_area(
-            "Nhap doan van can nhan dang thuc the",
+            "Nhập đoạn văn bản cần nhận dạng thực thể",
             value=default_text,
             max_chars=MAX_CHARS,
-            height=170,
-            help="Giới hạn ký tự để đảm bảo tốc độ infer nhanh (demo).",
+            height=150,
+            help="Giới hạn ký tự để đảm bảo tốc độ dự đoán (demo).",
             placeholder="Ví dụ: Tôi gặp ông Trần Văn B tại Đà Nẵng...",
         )
 
-    col1, col2 = st.columns([1, 3])
-    run_btn = col1.button("Nhan dang", type="primary", use_container_width=True)
-    show_tokens = col2.checkbox("Hien thi token-level labels", value=False)
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        run_btn = st.button("🔍 Phân tích văn bản", type="primary", use_container_width=True)
+    with col2:
+        st.markdown("<div style='padding-top:0.8rem;'></div>", unsafe_allow_html=True)
+        show_tokens = st.checkbox("Hiển thị nhãn chi tiết từng token (Debug mode)", value=False)
 
     if run_btn:
         cleaned = re.sub(r"\s+", " ", text).strip()
         if not cleaned:
-            st.warning("Vui long nhap van ban truoc khi nhan dang.")
+            st.warning("⚠️ Vui lòng nhập văn bản trước khi phân tích.")
             return
 
-        entities, token_labels = predict_ner(cleaned, model, tokenizer, device, id2label)
+        with st.spinner("Đang xử lý phân tích..."):
+            entities, token_labels = predict_ner(cleaned, model, tokenizer, device, id2label)
 
-        st.markdown("### Ket qua entity")
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("### 🎯 Kết Quả Nhận Dạng")
+        
+        st.markdown("<div style='background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 1.5rem;'>", unsafe_allow_html=True)
         _render_entity_badges(entities)
+        st.markdown("</div>", unsafe_allow_html=True)
 
         c1, c2 = st.columns(2)
         with c1:
             st.markdown(
-                f"<div class='metric-card'><b>So entity:</b> {len(entities)}</div>",
+                f"""
+                <div class='metric-card'>
+                    <div class='metric-label'>Số Thực Thể Tìm Thấy</div>
+                    <div class='metric-value'>{len(entities)}</div>
+                </div>
+                """,
                 unsafe_allow_html=True,
             )
         with c2:
             unique_types = sorted({e["entity"] for e in entities})
+            types_str = ', '.join(unique_types) if unique_types else 'Không có'
             st.markdown(
-                f"<div class='metric-card'><b>Loai entity:</b> {', '.join(unique_types) if unique_types else 'Khong co'}</div>",
+                f"""
+                <div class='metric-card'>
+                    <div class='metric-label'>Các Loại Thực Thể</div>
+                    <div class='metric-value' style='font-size: 1.4rem;'>{types_str}</div>
+                </div>
+                """,
                 unsafe_allow_html=True,
             )
 
+        st.markdown("<br>", unsafe_allow_html=True)
+
         if entities:
-            st.markdown("### Bang tong hop")
+            st.markdown("### 📊 Bảng Tổng Hợp Chi Tiết")
             rows = [
                 {
-                    "Entity": e["entity_name"],
-                    "Tag": e["entity"],
-                    "Text": e["text"],
+                    "Loại Thực Thể": e["entity_name"],
+                    "Mã Nhãn": e["entity"],
+                    "Nội Dung": e["text"],
                 }
                 for e in entities
             ]
             st.dataframe(rows, use_container_width=True)
 
         if show_tokens:
-            st.markdown("### Token labels (debug)")
+            st.markdown("### 🔬 Nhãn Cấp Độ Token")
             st.dataframe(
                 [
                     {
                         "Token": tok.replace("_", " "),
-                        "Label": lbl,
+                        "Nhãn": lbl,
                     }
                     for tok, lbl in token_labels
                 ],
                 use_container_width=True,
             )
 
-    with st.expander("Ghi chu demo"):
-        st.markdown(
+    st.markdown("<br>", unsafe_allow_html=True)
+    with st.expander("📌 Ghi chú hệ thống"):
+        st.info(
             """
-            - Dau `_` trong token da duoc chuyen thanh khoang trang khi hien thi output.
-            - Neu khong tim thay `label_mapping.json`, app se dung mapping mac dinh 9 nhan.
-            - De ket qua chinh xac nhat, dat `label_mapping.json` cung thu muc voi file model.
+            - Dấu `_` trong token (được tạo ra bởi bộ tách từ) đã được chuyển thành khoảng trắng khi hiển thị kết quả để dễ đọc hơn.
+            - Nếu không tìm thấy tệp `label_mapping.json`, ứng dụng sẽ sử dụng ánh xạ mặc định gồm 9 nhãn tiêu chuẩn.
+            - Để kết quả chính xác và đồng nhất với quá trình huấn luyện nhất, hãy đảm bảo đặt `label_mapping.json` cùng thư mục với tệp mô hình (`best_model.pt`).
             """
         )
 
